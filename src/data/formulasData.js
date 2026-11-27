@@ -1,0 +1,316 @@
+export const FORMULA_GROUPS = [
+  {
+    subject: 'phys',
+    category: 'Vật lý 2 — Điện trường, Từ trường & Maxwell',
+    items: [
+      { name: 'Định lý Gauss (Điện trường)', latex: '\\oint_{(S)} \\vec{E}\\cdot d\\vec{S} = \\frac{\\sum q_{\\text{trong}}}{\\varepsilon\\varepsilon_0}', note: 'Dùng chọn mặt cầu/trụ/hộp đối xứng' },
+      { name: 'Từ trường dòng thẳng vô hạn', latex: 'B = \\frac{\\mu\\mu_0 I}{2\\pi h}', note: 'h là khoảng cách vuông góc tới dây' },
+      { name: 'Từ trường tâm vòng dây / Ống dây', latex: 'B_{\\text{tâm}} = \\frac{\\mu\\mu_0 I}{2R}, \\quad B_{\\text{solenoid}} = \\mu\\mu_0 n I', note: 'n = N/l là số vòng trên 1m' },
+      { name: 'Định luật Faraday & Thanh trượt', latex: 'e_c = -\\frac{d\\Phi_B}{dt}, \\quad |e_c| = B l v \\sin\\alpha', note: 'Đổi cm → m trước khi tính' },
+      { name: 'Điện trường xoáy (trụ bán kính R)', latex: 'E_{\\text{trong}} = \\frac{r}{2}\\left|\\frac{dB}{dt}\\right|, \\quad E_{\\text{ngoài}} = \\frac{R^2}{2r}\\left|\\frac{dB}{dt}\\right|', note: 'Phân biệt kỹ r ≤ R và r > R' },
+      { name: 'Dòng điện dịch Maxwell', latex: 'j_d = \\frac{\\partial D}{\\partial t} = \\varepsilon\\varepsilon_0\\frac{\\partial E}{\\partial t}', note: 'Khép kín mạch qua tụ điện' },
+      { name: 'Mạch LC & Sóng điện từ', latex: '\\omega_0 = \\frac{1}{\\sqrt{LC}}, \\quad c = \\frac{1}{\\sqrt{\\varepsilon_0\\mu_0}}, \\quad \\vec{S} = \\vec{E}\\times\\vec{H}', note: 'S là véctơ Poynting (mật độ công suất)' },
+      { name: 'Quang sóng & Lượng tử (Bonus)', latex: 'i = \\frac{\\lambda D}{a}, \\quad \\frac{hc}{\\lambda} = A + \\frac{1}{2}mv_{\\max}^2', note: '1 eV = 1.6×10⁻¹⁹ J' },
+    ],
+  },
+  {
+    subject: 'circ',
+    category: 'Lý thuyết mạch — AC, Quá độ, Hỗ cảm & Mạng 4 cực',
+    items: [
+      { name: 'Tổng trở phức (AC)', latex: '\\dot{Z}_R = R, \\quad \\dot{Z}_L = j\\omega L, \\quad \\dot{Z}_C = \\frac{1}{j\\omega C} = -j\\frac{1}{\\omega C}', note: 'Chuyển u(t)=U_m cos(ωt+φ) → U∠φ' },
+      { name: 'Công suất mạch AC', latex: '\\tilde{S} = \\dot{U}\\dot{I}^* = P + jQ, \\quad P = UI\\cos\\varphi', note: 'Chú ý dấu liên hợp phức I*' },
+      { name: 'Phối hợp trở kháng', latex: '\\dot{Z}_t = \\dot{Z}_{th}^*, \\quad P_{\\max} = \\frac{U_{th}^2}{4 R_{th}}', note: 'Dùng giá trị hiệu dụng U_th' },
+      { name: 'Hỗ cảm nối tiếp', latex: 'M = k\\sqrt{L_1 L_2}, \\quad L_{\\text{tđ}} = L_1 + L_2 \\pm 2M', note: 'Cùng vào chấm lấy +, ngược lấy −' },
+      { name: 'Quá độ — Sơ đồ toán tử', latex: 'Z_L(p) = pL \\ (\\text{nguồn } L i_L(0_-)), \\quad Z_C(p) = \\frac{1}{pC} \\ (\\text{nguồn } \\frac{u_C(0_-)}{p})', note: 'Nguồn DC E → E/p' },
+      { name: 'Mạng 4 cực truyền đạt [A]', latex: '\\begin{cases} \\dot{U}_1 = A\\dot{U}_2 + B\\dot{I}_2 \\\\ \\dot{I}_1 = C\\dot{U}_2 + D\\dot{I}_2 \\end{cases}, \\quad AD - BC = 1', note: 'Mạng đối xứng thì A = D' },
+      { name: 'Cộng hưởng nối tiếp RLC', latex: '\\omega_0 = \\frac{1}{\\sqrt{LC}}, \\quad Q = \\frac{\\omega_0 L}{R} = \\frac{1}{R}\\sqrt{\\frac{L}{C}}, \\quad \\Delta\\omega = \\frac{\\omega_0}{Q}', note: 'Khi cộng hưởng U_L = U_C = Q·U' },
+    ],
+  },
+  {
+    subject: 'sig',
+    category: 'Tín hiệu & Hệ thống — Tích chập, Fourier, Laplace & Z',
+    items: [
+      { name: 'Tích chập (LTI)', latex: 'y(t) = \\int_{-\\infty}^{\\infty} x(\\tau)h(t-\\tau)d\\tau, \\quad y[n] = \\sum_{k=-\\infty}^{\\infty} x[k]h[n-k]', note: 'Kiểm tra tính liên tục tại các mốc t' },
+      { name: 'Năng lượng & Công suất', latex: 'E = \\int_{-\\infty}^{\\infty}|x(t)|^2 dt, \\quad P = \\lim_{T\\to\\infty}\\frac{1}{T}\\int_{-T/2}^{T/2}|x(t)|^2 dt', note: 'Tín hiệu tuần hoàn luôn là công suất' },
+      { name: 'Cặp Fourier cơ bản', latex: 'e^{-at}u(t) \\leftrightarrow \\frac{1}{a+j\\omega} \\ (a>0), \\quad \\text{rect}\\left(\\frac{t}{\\tau}\\right) \\leftrightarrow \\tau\\,\\text{sinc}\\left(\\frac{\\omega\\tau}{2\\pi}\\right)', note: 'Dịch t−t₀ → nhân e^{-jωt₀}' },
+      { name: 'Cặp Laplace cơ bản', latex: 'u(t) \\leftrightarrow \\frac{1}{s}, \\quad e^{-at}u(t) \\leftrightarrow \\frac{1}{s+a}, \\quad t e^{-at}u(t) \\leftrightarrow \\frac{1}{(s+a)^2}', note: 'Bắt buộc ghi ROC Re(s) > −a' },
+      { name: 'Laplace đạo hàm & giá trị cuối', latex: '\\mathcal{L}\\{f\'(t)\\} = sF(s) - f(0_-), \\quad f(\\infty) = \\lim_{s\\to 0} sF(s)', note: 'Định lý giá trị cuối chỉ đúng khi mọi cực sF(s) có Re < 0' },
+      { name: 'Cặp biến đổi Z', latex: 'a^n u[n] \\leftrightarrow \\frac{1}{1-az^{-1}} \\ (|z|>|a|), \\quad -a^n u[-n-1] \\leftrightarrow \\frac{1}{1-az^{-1}} \\ (|z|<|a|)', note: 'Hệ ổn định ⇔ ROC chứa |z|=1' },
+      { name: 'Biến đổi Z một phía (Sơ kiện)', latex: '\\mathcal{Z}^+\\{y[n-1]\\} = z^{-1}Y^+(z) + y[-1]', note: 'Với $y[n-2]$: $z^{-2}Y^+(z) + z^{-1}y[-1] + y[-2]$' },
+    ],
+  },
+];
+
+export const CASIO_GUIDES = [
+  {
+    title: '1. Bấm Số Phức Mạch AC (fx-580VNX / 880BTG)',
+    steps: [
+      'Chuyển sang chế độ Complex: `MENU` → `2` (Complex).',
+      'Đổi đơn vị góc sang Radian hoặc Độ (`SHIFT` → `MENU` → `2`) tùy bài cho $\\omega t + 30^\\circ$ hay $\\pi/6$.',
+      'Nhập dạng cực $10\\angle 30^\\circ$: bấm `10` → `SHIFT` → `ENG` (hoặc `OPTN` → `∠`) → `30`.',
+      'Xuất kết quả ra dạng $r\\angle\\theta$: bấm `OPTN` → mũi tên xuống → `1` (`r∠θ`) rồi `=`.',
+    ],
+    proTip: 'Không cần nhân chia phức bằng tay ở bước cuối Thế nút hay Thevenin — cứ viết công thức tổng quát trên giấy rồi bấm máy 1 phát ra cả biên độ và góc pha!',
+  },
+  {
+    title: '2. Giải nhanh Hệ phương trình 2–3 ẩn (Thế nút DC)',
+    steps: [
+      'Bấm `MENU` → `9` (Equation/Func) → `1` (Simul Equation) → chọn `2` hoặc `3` ẩn.',
+      'Nhập ma trận hệ số $[Y]$ và cột tự do $[J]$ để kiểm tra ngay kết quả giải tay.',
+    ],
+    proTip: 'Với hệ phức $2\\times 2$ trong Lý thuyết mạch: dùng công thức Cramer $D = a_{11}a_{22} - a_{12}a_{21}$ tính trực tiếp trong mode Complex (`MENU 2`) mất chưa tới 20 giây!',
+  },
+  {
+    title: '3. Kiểm tra nhanh Tách phân thức tối giản (Laplace / Z)',
+    steps: [
+      'Giả sử tách $F(s) = \\frac{2s+1}{(s+2)(s+3)} = \\frac{A}{s+2} + \\frac{B}{s+3}$.',
+      'Dùng phím `CALC` ở mode Calculate (`MENU 1`): nhập biểu thức $\\frac{2X+1}{X+3}$, bấm `CALC`, nhập $X = -2$ $\\to$ ra ngay $A = -3$!',
+      'Tương tự, nhập $\\frac{2X+1}{X+2}$, bấm `CALC`, nhập $X = -3$ $\\to$ ra ngay $B = 5$.',
+      'Thử lại: bấm `CALC` cho hiệu $F(X) - \\left(\\frac{A}{X+2} + \\frac{B}{X+3}\\right)$ tại $X = 1.23$ $\\to$ phải ra `0`!',
+    ],
+    proTip: 'Bước thử lại bằng `X = 1.23` giúp loại bỏ 100% lỗi nhầm dấu khi làm Laplace ngược / biến đổi Z ngược!',
+  },
+  {
+    title: '4. Tìm nghiệm đa thức bậc 2, bậc 3 (Xét điểm cực / Mạch quá độ)',
+    steps: [
+      'Bấm `MENU` → `9` → `2` (Polynomial) → chọn bậc `2` hoặc `3`.',
+      'Nếu nghiệm ra dạng phức $a \\pm bi$: biết ngay mạch quá độ thuộc chế độ **dao động tắt dần** ($e^{at}[C_1\\cos(bt)+C_2\\sin(bt)]$).',
+    ],
+    proTip: 'Mẹo PTIT: Nếu bậc 2 cho nghiệm thực âm $a < 0$, hệ chắc chắn ổn định BIBO; nếu ra phần thực dương $a > 0$, hệ mất ổn định!',
+  },
+];
+
+export const MOCK_EXAMS = [
+  {
+    id: 'exam-mix',
+    title: 'Đề Liên Hoàn 3 Môn (Tổng hợp)',
+    durationMin: 90,
+    desc: '4 câu tự luận chọn lọc từ đúng 3 môn trọng tâm nhất năm 2 để kiểm tra toàn diện phản xạ trước ngày thi.',
+    questions: [
+      {
+        id: 'q1',
+        subject: 'phys',
+        points: 2.5,
+        title: 'Câu 1 (Vật lý 2 — 2.5 điểm): Điện trường xoáy & Cảm ứng',
+        prompt: 'Trong một hình trụ dài bán kính $R = 0.2\\text{ m}$ có từ trường đều dọc trục biến thiên theo quy luật $B(t) = 0.3t^2 + 0.4t\\text{ (T)}$. a) Tính cường độ điện trường xoáy tại $r_1 = 0.1\\text{ m}$ và $r_2 = 0.4\\text{ m}$ lúc $t = 1\\text{ s}$. b) Đặt một vòng dây mảnh bán kính $r_1 = 0.1\\text{ m}$ đồng trục trong hình trụ, điện trở $R_d = 2\\,\\Omega$, tính dòng cảm ứng lúc $t = 1\\text{ s}$.',
+        rubric: [
+          { label: 'Tính đúng đạo hàm $dB/dt|_{t=1} = 0.6(1) + 0.4 = 1.0\\text{ T/s}$', pts: 0.5 },
+          { label: 'Viết công thức Faraday & tính đúng $E(r_1) = \\frac{0.1}{2}\\times 1 = 0.05\\text{ V/m}$', pts: 0.75 },
+          { label: 'Dùng đúng diện tích $\\pi R^2$ tính $E(r_2) = \\frac{0.2^2}{2\\times 0.4}\\times 1 = 0.05\\text{ V/m}$', pts: 0.75 },
+          { label: 'Tính $|e_c| = E(r_1)\\cdot 2\\pi r_1 = \\pi\\times 10^{-2}\\text{ V}$ và $I_c = \\frac{|e_c|}{2} \\approx 0.0157\\text{ A}$', pts: 0.5 },
+        ],
+      },
+      {
+        id: 'q2',
+        subject: 'circ',
+        points: 2.5,
+        title: 'Câu 2 (Lý thuyết mạch — 2.5 điểm): Quá độ mạch RL toán tử Laplace',
+        prompt: 'Mạch nối tiếp gồm nguồn $E = 24\\text{ V}$ (DC), $R = 6\\,\\Omega$, $L = 2\\text{ H}$. Tại $t = 0$ đóng khóa $K$ cấp nguồn cho $RL$ (biết trước đó có dòng ban đầu $i_L(0_-) = 1\\text{ A}$ chạy cùng chiều nguồn). Dùng toán tử Laplace tìm $i(t)$ và $u_L(t)$ với $t \\ge 0$.',
+        rubric: [
+          { label: 'Nêu đúng sơ kiện $i_L(0_+) = i_L(0_-) = 1\\text{ A}$', pts: 0.5 },
+          { label: 'Vẽ sơ đồ toán tử với $E(p) = 24/p$, $Z_L(p) = 2p$ và nguồn áp phụ $L i_L(0_-) = 2\\text{ V}$ (cộng cùng chiều nguồn)', pts: 0.75 },
+          { label: 'Lập đúng $I(p) = \\frac{24/p + 2}{6 + 2p} = \\frac{p + 12}{p(p+3)} = \\frac{4}{p} - \\frac{3}{p+3}$', pts: 0.75 },
+          { label: 'Suy ra $i(t) = (4 - 3e^{-3t})u(t)\\text{ A}$ và $u_L(t) = L\\frac{di}{dt} = 18e^{-3t}u(t)\\text{ V}$ (tại $t>0$)', pts: 0.5 },
+        ],
+      },
+      {
+        id: 'q3',
+        subject: 'circ',
+        points: 2.0,
+        title: 'Câu 3 (Lý thuyết mạch — 2.0 điểm): Mạng bốn cực đối xứng',
+        prompt: 'Cho mạng bốn cực chữ $\\Pi$ đối xứng: nhánh nối tiếp ở giữa $Z_1 = 4\\,\\Omega$, hai nhánh rẽ song song hai bên bằng nhau $Z_2 = Z_3 = 4\\,\\Omega$. Tính ma trận $[A]$ và kiểm tra $AD - BC = 1$, $A = D$.',
+        rubric: [
+          { label: 'Không tải ($I_2 = 0$): $Z_1 + Z_3 = 8\\,\\Omega \\parallel Z_2 = 4\\,\\Omega$; cầu phân áp cho $U_2/U_1 = 4/(4+4) = 1/2 \\implies A = 2$', pts: 0.75 },
+          { label: 'Tìm đúng $C = I_1/U_2 = 0.75\\text{ S}$ (vì $I_1 = U_1/4 + U_1/8 = 3U_1/8 = 3U_2/4$)', pts: 0.5 },
+          { label: 'Ngắn mạch ($U_2 = 0$): $B = Z_1 = 4\\,\\Omega$, $D = 1 + Z_1/Z_2 = 2$', pts: 0.5 },
+          { label: 'Kiểm chứng $AD - BC = 2\\times 2 - 4\\times 0.75 = 1$ và $A = D = 2$', pts: 0.25 },
+        ],
+      },
+      {
+        id: 'q4',
+        subject: 'sig',
+        points: 3.0,
+        title: 'Câu 4 (Tín hiệu & Hệ thống — 3.0 điểm): Tích chập & Biến đổi Z',
+        prompt: 'a) (1.5đ) Tính tích chập rời rạc $y[n] = x[n]*h[n]$ với $x[n] = \\{1, 2, 1\\}$ (tại $n=0,1,2$) và $h[n] = \\{2, -1\\}$ (tại $n=0,1$). b) (1.5đ) Tìm biến đổi Z ngược của $H(z) = \\frac{1}{(1 - 0.5z^{-1})(1 + 0.25z^{-1})}$ biết hệ thống **ổn định BIBO**.',
+        rubric: [
+          { label: 'a) Tính đúng chiều dài $L_y = 3 + 2 - 1 = 4$ và kết quả $y[n] = \\{2, 3, 0, -1\\}$ ($n=0..3$)', pts: 1.5 },
+          { label: 'b) Xác định cực $z = 0.5, z = -0.25$; vì ổn định nên ROC chứa $|z|=1 \\implies |z| > 0.5$ (nhân quả)', pts: 0.5 },
+          { label: 'b) Tách đúng $H(z) = \\frac{2/3}{1 - 0.5z^{-1}} + \\frac{1/3}{1 + 0.25z^{-1}}$', pts: 0.5 },
+          { label: 'b) Kết luận $h[n] = \\left[\\frac{2}{3}(0.5)^n + \\frac{1}{3}(-0.25)^n\\right]u[n]$', pts: 0.5 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'exam-phys',
+    title: 'Đề Chuyên Sâu: Vật lý 2 (BAS1225)',
+    durationMin: 90,
+    desc: 'Form 4 câu tự luận chuẩn PTIT: Định lý Gauss + Biot–Savart + Cảm ứng Faraday + Dao động LC.',
+    questions: [
+      {
+        id: 'p-q1',
+        subject: 'phys',
+        points: 2.5,
+        title: 'Câu 1 (2.5đ): Định lý Gauss quả cầu đặc',
+        prompt: 'Một quả cầu đặc bằng điện môi ($\varepsilon = 1$) bán kính $R = 0.1\\text{ m}$ tích điện đều theo thể tích với mật độ $\\rho = 3\\times 10^{-6}\\text{ C/m}^3$. Dùng định lý Gauss thiết lập công thức và tính độ lớn $E$ tại $r_1 = 0.05\\text{ m}$ và $r_2 = 0.2\\text{ m}$ (lấy $\\varepsilon_0 = 8.85\\times 10^{-12}\\text{ F/m}$).',
+        rubric: [
+          { label: 'Lập luận đối xứng cầu, chọn mặt Gauss tâm O bán kính $r$ và viết $\\Phi_e = E\\cdot 4\\pi r^2$', pts: 0.75 },
+          { label: 'Thiết lập đúng công thức trong ($r<R$): $E = \\frac{\\rho r}{3\\varepsilon_0} \\approx 5.65\\times 10^3\\text{ V/m}$', pts: 0.85 },
+          { label: 'Thiết lập đúng công thức ngoài ($r>R$): $E = \\frac{\\rho R^3}{3\\varepsilon_0 r^2} \\approx 2.82\\times 10^3\\text{ V/m}$', pts: 0.9 },
+        ],
+      },
+      {
+        id: 'p-q2',
+        subject: 'phys',
+        points: 2.5,
+        title: 'Câu 2 (2.5đ): Từ trường hai dây dẫn thẳng song song',
+        prompt: 'Hai dây dẫn thẳng dài vô hạn đặt song song trong không khí cách nhau $d = 20\\text{ cm}$, mang hai dòng điện **ngược chiều** $I_1 = 10\\text{ A}$ và $I_2 = 20\\text{ A}$. Tính cảm ứng từ tổng hợp $\\vec{B}$ tại trung điểm $M$ trên đoạn thẳng nối hai dây ($h_1 = h_2 = 10\\text{ cm}$).',
+        rubric: [
+          { label: 'Tính đúng $B_1 = \\frac{\\mu_0 I_1}{2\\pi h_1} = 2\\times 10^{-5}\\text{ T}$', pts: 0.75 },
+          { label: 'Tính đúng $B_2 = \\frac{\\mu_0 I_2}{2\\pi h_2} = 4\\times 10^{-5}\\text{ T}$', pts: 0.75 },
+          { label: 'Xác định đúng $\\vec{B}_1 \\uparrow\\uparrow \\vec{B}_2$ tại trung điểm $\\implies B = B_1 + B_2 = 6\\times 10^{-5}\\text{ T}$', pts: 1.0 },
+        ],
+      },
+      {
+        id: 'p-q3',
+        subject: 'phys',
+        points: 2.5,
+        title: 'Câu 3 (2.5đ): Cảm ứng điện từ khung dây nhiều vòng',
+        prompt: 'Một cuộn dây tròn gồm $N = 50$ vòng, bán kính $r = 10\\text{ cm}$, điện trở tổng $R = 5\\,\\Omega$ đặt vuông góc với từ trường đều biến thiên theo thời gian $B(t) = 0.4\\cos(100\\pi t)\\text{ (T)}$. Tìm biểu thức suất điện động cảm ứng $e_c(t)$ và giá trị cực đại của dòng cảm ứng $I_{\\max}$.',
+        rubric: [
+          { label: 'Tính đúng diện tích $S = \\pi r^2 = 0.01\\pi\\text{ m}^2$ và từ thông toàn phần $\\Phi = N B S = 0.2\\pi\\cos(100\\pi t)\\text{ Wb}$', pts: 1.0 },
+          { label: 'Đạo hàm đúng $e_c(t) = -\\frac{d\\Phi}{dt} = 20\\pi^2\\sin(100\\pi t)\\text{ V}$ ($E_{\\max} \\approx 197.4\\text{ V}$)', pts: 1.0 },
+          { label: 'Tính đúng $I_{\\max} = \\frac{E_{\\max}}{R} = 4\\pi^2 \\approx 39.48\\text{ A}$', pts: 0.5 },
+        ],
+      },
+      {
+        id: 'p-q4',
+        subject: 'phys',
+        points: 2.5,
+        title: 'Câu 4 (2.5đ): Mạch dao động điện từ LC',
+        prompt: 'Một mạch dao động tự do lý tưởng gồm $L = 4\\text{ mH}$ và $C = 10\\,\\mu\\text{F}$. Hiệu điện thế cực đại trên tụ là $U_0 = 10\\text{ V}$. Tính tần số góc riêng $\\omega_0$, chu kỳ $T_0$, năng lượng điện từ toàn phần $W$ và cường độ dòng điện cực đại $I_0$.',
+        rubric: [
+          { label: 'Tính đúng $\\omega_0 = \\frac{1}{\\sqrt{LC}} = 5000\\text{ rad/s}$ và $T_0 = \\frac{2\\pi}{\\omega_0} \\approx 1.257\\text{ ms}$', pts: 1.0 },
+          { label: 'Tính đúng năng lượng $W = \\frac{1}{2}CU_0^2 = 5\\times 10^{-4}\\text{ J}$', pts: 0.75 },
+          { label: 'Từ $\\frac{1}{2}LI_0^2 = \\frac{1}{2}CU_0^2 \\implies I_0 = U_0\\sqrt{C/L} = 0.5\\text{ A}$', pts: 0.75 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'exam-circ',
+    title: 'Đề Chuyên Sâu: Lý thuyết mạch (ELE1318)',
+    durationMin: 90,
+    desc: 'Form 4 câu tự luận chuẩn PTIT: Thế nút AC phức + Thevenin cực đại công suất + Quá độ RLC Laplace + Mạng 4 cực.',
+    questions: [
+      {
+        id: 'c-q1',
+        subject: 'circ',
+        points: 2.5,
+        title: 'Câu 1 (2.5đ): Phương pháp Thế nút mạch AC phức',
+        prompt: 'Mạch 2 nút độc lập $1, 2$ (nút $0$ gốc). Nút $1$ có nguồn dòng $\\dot{J}_1 = 10\\angle 0^\\circ\\text{ A}$ đi vào và $R_1 = 2\\,\\Omega$ nối đất. Nhánh $1–2$ là $Z_{12} = j2\\,\\Omega$. Nút $2$ nối đất qua $Z_2 = 1 - j1\\,\\Omega$. Lập ma trận thế nút và tìm $\\dot{\\varphi}_1, \\dot{\\varphi}_2, \\dot{I}_{12}$.',
+        rubric: [
+          { label: 'Tính đúng các tổng dẫn $Y_1 = 0.5, Y_{12} = -j0.5, Y_2 = 0.5 + j0.5\\text{ S}$', pts: 0.75 },
+          { label: 'Lập đúng hệ $(0.5-j0.5)\\dot{\\varphi}_1 + j0.5\\dot{\\varphi}_2 = 10$ và $j0.5\\dot{\\varphi}_1 + 0.5\\dot{\\varphi}_2 = 0$', pts: 0.75 },
+          { label: 'Giải đúng $\\dot{\\varphi}_1 = 8 + j4\\text{ V}$, $\\dot{\\varphi}_2 = 4 - j8\\text{ V}$, $\\dot{I}_{12} = 6 - j2\\text{ A}$', pts: 1.0 },
+        ],
+      },
+      {
+        id: 'c-q2',
+        subject: 'circ',
+        points: 2.5,
+        title: 'Câu 2 (2.5đ): Thevenin & Phối hợp trở kháng cực đại công suất',
+        prompt: 'Nguồn áp $\\dot{E} = 20\\angle 0^\\circ\\text{ V}$ nối tiếp $R_1 = 3\\,\\Omega$ tới nút $A$; từ $A$ có nhánh $Z_2 = j3\\,\\Omega$ nối đất. Mắc tải $\\dot{Z}_t$ vào giữa $A$ và đất. Tìm $\\dot{U}_{th}, Z_{th}$, giá trị $\\dot{Z}_t$ để công suất tác dụng trên tải cực đại và tính $P_{\\max}$.',
+        rubric: [
+          { label: 'Tính đúng $\\dot{U}_{th} = 20\\cdot\\frac{j3}{3+j3} = 10 + j10\\text{ V}$ ($|\\dot{U}_{th}| = 10\\sqrt{2}\\text{ V}$)', pts: 0.75 },
+          { label: 'Tính đúng $Z_{th} = 3 \\parallel j3 = 1.5 + j1.5\\,\\Omega$', pts: 0.75 },
+          { label: 'Chốt $\\dot{Z}_t = \\dot{Z}_{th}^* = 1.5 - j1.5\\,\\Omega$ và $P_{\\max} = \\frac{(10\\sqrt{2})^2}{4\\times 1.5} = \\frac{100}{3} \\approx 33.33\\text{ W}$', pts: 1.0 },
+        ],
+      },
+      {
+        id: 'c-q3',
+        subject: 'circ',
+        points: 3.0,
+        title: 'Câu 3 (3.0đ): Quá độ mạch RLC dùng Toán tử Laplace',
+        prompt: 'Mạch nối tiếp $E = 20\\text{ V}$ (DC), $R = 5\\,\\Omega$, $L = 1\\text{ H}$, $C = 0.25\\text{ F}$, ban đầu chưa tích điện ($i_L(0_-)=0, u_C(0_-)=0$). Đóng khóa $K$ lúc $t=0$. Tìm $i(t)$ và $u_C(t)$ với $t \\ge 0$.',
+        rubric: [
+          { label: 'Xác định sơ kiện $0$ và lập đúng $Z(p) = 5 + p + \\frac{4}{p} = \\frac{(p+1)(p+4)}{p}$', pts: 0.75 },
+          { label: 'Tìm $I(p) = \\frac{20}{(p+1)(p+4)} = \\frac{20}{3}(\\frac{1}{p+1} - \\frac{1}{p+4}) \\implies i(t) = \\frac{20}{3}(e^{-t}-e^{-4t})u(t)\\text{ A}$', pts: 1.0 },
+          { label: 'Tìm $U_C(p) = \\frac{80}{p(p+1)(p+4)} = \\frac{20}{p} - \\frac{80/3}{p+1} + \\frac{20/3}{p+4}$', pts: 0.75 },
+          { label: 'Kết luận $u_C(t) = \\left(20 - \\frac{80}{3}e^{-t} + \\frac{20}{3}e^{-4t}\\right)u(t)\\text{ V}$', pts: 0.5 },
+        ],
+      },
+      {
+        id: 'c-q4',
+        subject: 'circ',
+        points: 2.0,
+        title: 'Câu 4 (2.0đ): Mạng bốn cực chữ T đối xứng',
+        prompt: 'Cho mạng bốn cực chữ $T$ có hai nhánh nối tiếp bằng nhau $Z_1 = Z_2 = 2\\,\\Omega$ và nhánh rẽ song song ở giữa $Z_3 = 4\\,\\Omega$. Tính bộ thông số $[A]$ ($\\dot{I}_2$ hướng ra tải) và kiểm tra $AD - BC = 1$.',
+        rubric: [
+          { label: 'Hở mạch ($\\dot{I}_2 = 0$): $A = \\frac{2+4}{4} = 1.5$ và $C = \\frac{1}{4} = 0.25\\text{ S}$', pts: 0.75 },
+          { label: 'Ngắn mạch ($\\dot{U}_2 = 0$): $Z_{\\text{vào}} = 2 + (4\\parallel 2) = \\frac{10}{3}\\,\\Omega$, chia dòng $\\dot{I}_2 = \\frac{2}{3}\\dot{I}_1 \\implies D = 1.5, B = 5\\,\\Omega$', pts: 1.0 },
+          { label: 'Kiểm chứng $AD - BC = 1.5\\times 1.5 - 5\\times 0.25 = 2.25 - 1.25 = 1$', pts: 0.25 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'exam-sig',
+    title: 'Đề Chuyên Sâu: Tín hiệu & Hệ thống (TEL1368)',
+    durationMin: 90,
+    desc: 'Chuẩn form 4 câu tự luận PTIT: Tính chất LTI + Tích chập + Laplace H(s) cực–không + Biến đổi Z & ROC.',
+    questions: [
+      {
+        id: 's-q1',
+        subject: 'sig',
+        points: 2.0,
+        title: 'Câu 1 (2.0đ): Khảo sát hệ thống LTI',
+        prompt: 'Xét hệ thống $y(t) = \\int_{-\\infty}^{t} x(\\tau - 1)\\,d\\tau$. Hệ có tuyến tính, bất biến, nhân quả và ổn định BIBO không? Giải thích.',
+        rubric: [
+          { label: 'Chứng minh đúng tính Tuyến tính', pts: 0.5 },
+          { label: 'Chứng minh đúng tính Bất biến theo thời gian (đổi biến $\\tau\' = \\tau - t_0$)', pts: 0.5 },
+          { label: 'Nhân quả (cận trên $t$, biến lấy $\\tau - 1 \\le t - 1 < t$)', pts: 0.5 },
+          { label: 'Không ổn định BIBO (thử $x(t) = u(t) \\implies y(t) = (t-1)u(t-1) \\to \\infty$)', pts: 0.5 },
+        ],
+      },
+      {
+        id: 's-q2',
+        subject: 'sig',
+        points: 2.5,
+        title: 'Câu 2 (2.5đ): Tích chập liên tục',
+        prompt: 'Tính $y(t) = x(t)*h(t)$ với $x(t) = u(t) - u(t-1)$ và $h(t) = u(t) - u(t-3)$. Vẽ dạng sóng $y(t)$.',
+        rubric: [
+          { label: 'Chia đúng các khoảng: $t<0$; $0\\le t<1$; $1\\le t<3$; $3\\le t<4$; $t\\ge 4$', pts: 0.75 },
+          { label: 'Tính đúng $y(t) = t$ ($0\\le t<1$), $y(t) = 1$ ($1\\le t<3$), $y(t) = 4 - t$ ($3\\le t<4$), $0$ ở ngoài', pts: 1.25 },
+          { label: 'Vẽ đúng hình thang cân có đáy lớn $[0, 4]$ và đỉnh phẳng $[1, 3]$ cao $1$', pts: 0.5 },
+        ],
+      },
+      {
+        id: 's-q3',
+        subject: 'sig',
+        points: 3.0,
+        title: 'Câu 3 (3.0đ): Biến đổi Laplace & Phương trình vi phân',
+        prompt: 'Cho hệ nhân quả: $y\'\'(t) + 4y\'(t) + 3y(t) = x\'(t) + 2x(t)$ (điều kiện đầu bằng 0). Tìm $H(s)$, ROC, xét ổn định và tìm đáp ứng xung $h(t)$.',
+        rubric: [
+          { label: 'Tìm đúng $H(s) = \\frac{s + 2}{(s+1)(s+3)}$', pts: 0.75 },
+          { label: 'Ghi đủ cực $p_1 = -1, p_2 = -3$, zero $z_1 = -2$, ROC $\\text{Re}(s) > -1$ và ổn định BIBO', pts: 1.0 },
+          { label: 'Khai triển $H(s) = \\frac{0.5}{s+1} + \\frac{0.5}{s+3}$', pts: 0.75 },
+          { label: 'Đáp ứng xung $h(t) = (0.5e^{-t} + 0.5e^{-3t})u(t)$', pts: 0.5 },
+        ],
+      },
+      {
+        id: 's-q4',
+        subject: 'sig',
+        points: 2.5,
+        title: 'Câu 4 (2.5đ): Phương trình sai phân & Biến đổi Z',
+        prompt: 'Giải phương trình sai phân nhân quả $y[n] - \\frac{1}{4}y[n-2] = x[n]$ với $x[n] = \\delta[n]$ và $y[-1] = y[-2] = 0$ để tìm $h[n]$.',
+        rubric: [
+          { label: 'Biến đổi Z tìm đúng $H(z) = \\frac{1}{1 - 0.25z^{-2}} = \\frac{1}{(1-0.5z^{-1})(1+0.5z^{-1})}$', pts: 0.75 },
+          { label: 'Xác định ROC $|z| > 0.5$ (chứa $|z|=1 \\to$ ổn định)', pts: 0.5 },
+          { label: 'Tách $H(z) = \\frac{0.5}{1 - 0.5z^{-1}} + \\frac{0.5}{1 + 0.5z^{-1}}$', pts: 0.75 },
+          { label: 'Suy ra $h[n] = 0.5[(0.5)^n + (-0.5)^n]u[n]$ (bằng $(0.5)^n$ khi $n$ chẵn, $0$ khi $n$ lẻ)', pts: 0.5 },
+        ],
+      },
+    ],
+  },
+];
